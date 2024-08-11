@@ -4,7 +4,7 @@ dict_of_tasks = {}
 def add_task():
     name_to_add = input("Name of task: ").capitalize()
     if name_to_add not in dict_of_tasks:
-        dict_of_tasks[name_to_add] = 'X'                #Creates a new dictionary entry
+        dict_of_tasks[name_to_add] = 'In Progress'                #Creates a new dictionary entry
         print("Task '" + name_to_add + "' added to To-Do list")
     else:
         print("Task already exists ")
@@ -12,7 +12,7 @@ def add_task():
 def change_task_status():
     name_to_change = input("Name of task: ").capitalize()
     if name_to_change in dict_of_tasks:
-        dict_of_tasks[name_to_change] = 'Done'  
+        dict_of_tasks[name_to_change] = 'Completed'  
     
     else:
         print("Task not found")
@@ -27,8 +27,7 @@ def delete_task():
         print("Task not found")
 
 def reset_list():
-    for key,value in list(dict_of_tasks.items()):
-        del dict_of_tasks[key]
+    dict_of_tasks.clear()
     print("To-Do list has been reset")
 
 def view_tasks():
@@ -50,6 +49,7 @@ while True:
     print(" 'D' Delete task ")
     print(" 'R' Reset tasks ")
     print(" '.' View all tasks ")
+    print(" 'e' Exit To-Do list")
     user_input = input("Enter a command: ").upper()
 
     if user_input == 'A':
@@ -62,6 +62,9 @@ while True:
         reset_list()
     elif user_input == '.':
         view_tasks()
+    elif user_input == 'E':
+        print("\nThank you for using my To-Do list!!\n")
+        break
     else:
         print("\nInvalid Command\nPlease enter a valid command ")
 
