@@ -1,4 +1,6 @@
 import time
+from colorama import Fore,Style
+
 dict_of_tasks = {}
 
 def add_task():
@@ -35,7 +37,15 @@ def view_tasks():
     if len(dict_of_tasks)>0:
         print("\nNumber of tasks: "+ str(len(dict_of_tasks))+"\n")
         for key in dict_of_tasks:
-            print('- ' + key + '\t\t' + dict_of_tasks[key])
+            if dict_of_tasks[key] == "Completed":
+                print('- ' + Fore.GREEN + key  + '\t\t' + dict_of_tasks[key] + Style.RESET_ALL)
+
+            else:
+                print('- ' + Fore.RED + key  + '\t\t' + dict_of_tasks[key] + Style.RESET_ALL)
+            
+            
+            
+            
             
     else:
         print("You have an empty To-Do list")
